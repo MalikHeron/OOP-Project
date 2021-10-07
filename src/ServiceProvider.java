@@ -10,6 +10,9 @@ abstract class ServiceProvider {
     private String Address;
     private int TelephoneNum;
     private double Credit_Bal;
+    private int CardNumber;
+    private double Denominations;
+    private String Status;
 
     ServiceProvider(){
         TRN = 0;
@@ -18,6 +21,9 @@ abstract class ServiceProvider {
         TelephoneNum = 0;
         Credit_Bal = 0.00;
         Prefix = new int[]{0, 0, 0, 0};
+        CardNumber = 0;
+        Denominations = 0.00;
+        Status = "";
 
         //Properties for Panel
         Panel.setLayout(null);
@@ -126,6 +132,7 @@ abstract class ServiceProvider {
         });
     }
 
+    //Initialization of Getters
     protected int GetTRN(){
         return TRN;
     }
@@ -146,6 +153,19 @@ abstract class ServiceProvider {
         return Credit_Bal;
     }
 
+    protected int GetCardNumber() {
+        return CardNumber;
+    }
+
+    protected void GetDenominations(double Denominations) {
+        this.Denominations = Denominations;
+    }
+
+    protected String GetStatus() {
+        return Status;
+    }
+
+    //Initialization of Setters
     protected void SetTRN(int TRN){
         this.TRN = TRN;
     }
@@ -166,6 +186,19 @@ abstract class ServiceProvider {
         this.Credit_Bal = Credit_Bal;
     }
 
+    protected void GetCardNumber(int CardNumber) {
+        this.CardNumber = CardNumber;
+    }
+
+    protected double GetDenominations() {
+        return Denominations;
+    }
+
+    protected void setStatus(String Status) {
+        this.Status = Status;
+    }
+
+    //Abstract Functions
     abstract protected int[] GetPrefix();
 
     abstract protected void DisplayCompanyInformation();

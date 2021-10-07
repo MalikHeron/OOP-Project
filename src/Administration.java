@@ -118,7 +118,7 @@ public class Administration {
         //Action when TotalNumberOfCustomersButton is Pressed
         TotalNumberOfCustomersButton.addActionListener((ActionEvent e) -> {
             System.out.println("Total Number Of Customers Button Pressed");
-            TotalNumberOfCustomers();
+            DisplayTotalNumberOfCustomers();
         });
     }
 
@@ -138,7 +138,7 @@ public class Administration {
         this.Password = Password;
     }
 
-    public void TotalNumberOfCustomers(){
+    public void DisplayTotalNumberOfCustomers(){
         //Count Number of Customer for Digicel
         int DigicelTotal = Digicel.GetNumberOfCustomers();
 
