@@ -13,3 +13,6 @@ Joe Hut, Trelawny
 992433322 Graham
 Lime Tree, Trelawny
 8766032455 0.0
+192833833 White
+Mandeville, Manchester
+8766048222 100.0
