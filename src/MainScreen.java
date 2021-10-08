@@ -3,9 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class MainScreen extends JFrame {
+
     JPanel Panel = new JPanel();
 
-    MainScreen(){
+    //Default Constructor
+    MainScreen() {
         //Properties for JFrame
         setPreferredSize(new Dimension(600, 400));
         setMinimumSize(new Dimension(600, 400));
@@ -24,7 +26,7 @@ public class MainScreen extends JFrame {
         //Properties for Menu Label
         JLabel MenuLabel = new JLabel("Main Menu");
         MenuLabel.setFont(new Font("times new roman", Font.BOLD, 30));
-        MenuLabel.setBounds(225, 20, 150, 40);
+        MenuLabel.setBounds(225, 20, 190, 40);
 
         //Properties for Administration Button
         JButton AdministrationButton = new JButton("Administration");
@@ -90,7 +92,7 @@ public class MainScreen extends JFrame {
             if (isYes) {
                 System.out.println("Program Exiting...");
                 System.exit(0);
-            }else{
+            } else {
                 System.out.println("Exit Cancelled.");
             }
         });

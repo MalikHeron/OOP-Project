@@ -3,11 +3,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class Administration {
+
     private final JPanel Panel = new JPanel();
     private String Provider;
     private String Password;
 
-    Administration(){
+    //Default Constructor
+    Administration() {
         //Initialize variables
         Provider = "";
         Password = "";
@@ -21,7 +23,7 @@ public class Administration {
         //Properties for Menu Label
         JLabel MenuLabel = new JLabel("Administration Menu");
         MenuLabel.setFont(new Font("times new roman", Font.BOLD, 30));
-        MenuLabel.setBounds(160, 20, 280, 40);
+        MenuLabel.setBounds(160, 20, 300, 40);
 
         //Properties for Back Button
         JButton BackButton = new JButton("<");
@@ -73,11 +75,11 @@ public class Administration {
         DigicelButton.addActionListener((ActionEvent e) -> {
             System.out.println("Digicel Button Pressed");
             SetProvider("Digicel");
-            String Pass = JOptionPane.showInputDialog(Panel,null, "Password",
+            String Pass = JOptionPane.showInputDialog(Panel, null, "Password",
                     JOptionPane.INFORMATION_MESSAGE);
             SetPassword(Pass);
 
-            if(GetPassword().equals("TheBiggerBetterNetwork2021") && GetProvider().equals("Digicel")){
+            if (GetPassword().equals("TheBiggerBetterNetwork2021") && GetProvider().equals("Digicel")) {
                 System.out.println("Logged In");
                 ServiceProvider DisplayDigicel = new Digicel();
 
@@ -86,7 +88,7 @@ public class Administration {
                 Panel.add(DisplayDigicel.GetComponent());//Recreate Main menu
                 Panel.validate();
                 Panel.repaint();
-            }else{
+            } else {
                 System.err.println("Incorrect Password.");
                 JOptionPane.showMessageDialog(Panel, "Incorrect Password", "Error", JOptionPane.WARNING_MESSAGE);
             }
@@ -96,11 +98,11 @@ public class Administration {
         FlowButton.addActionListener((ActionEvent e) -> {
             System.out.println("FLow Button Pressed");
             SetProvider("Flow");
-            String Pass = JOptionPane.showInputDialog(Panel,null, "Password",
+            String Pass = JOptionPane.showInputDialog(Panel, null, "Password",
                     JOptionPane.INFORMATION_MESSAGE);
             SetPassword(Pass);
 
-            if(GetPassword().equals("TheWayIFlow2021") && GetProvider().equals("Flow")){
+            if (GetPassword().equals("TheWayIFlow2021") && GetProvider().equals("Flow")) {
                 System.out.println("Logged In");
                 ServiceProvider DisplayFlow = new Flow();
 
@@ -109,7 +111,7 @@ public class Administration {
                 Panel.add(DisplayFlow.GetComponent());//Recreate Main menu
                 Panel.validate();
                 Panel.repaint();
-            }else{
+            } else {
                 System.err.println("Incorrect Password.");
                 JOptionPane.showMessageDialog(Panel, "Incorrect Password", "Error", JOptionPane.WARNING_MESSAGE);
             }
@@ -122,23 +124,26 @@ public class Administration {
         });
     }
 
-    public String GetProvider(){
+    //Initialization of Getters
+    public String GetProvider() {
         return Provider;
     }
 
-    public String GetPassword(){
+    public String GetPassword() {
         return Password;
     }
 
-    public void SetProvider(String Provider){
+    //Initialization of Setters
+    public void SetProvider(String Provider) {
         this.Provider = Provider;
     }
 
-    public void SetPassword(String Password){
+    public void SetPassword(String Password) {
         this.Password = Password;
     }
 
-    public void DisplayTotalNumberOfCustomers(){
+    //Get and Display Total Number of Customers for all Service Providers
+    public void DisplayTotalNumberOfCustomers() {
         //Count Number of Customer for Digicel
         int DigicelTotal = Digicel.GetNumberOfCustomers();
 
@@ -148,7 +153,7 @@ public class Administration {
         //Add Totals
         int Total = (DigicelTotal + FlowTotal);
 
-        System.out.println("Total Number of Customers: "+ Total);
+        System.out.println("Total Number of Customers: " + Total);
         JOptionPane.showMessageDialog(Panel, Total, "Total Number of Customer", JOptionPane.INFORMATION_MESSAGE);
     }
 

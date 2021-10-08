@@ -3,26 +3,20 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 abstract class ServiceProvider {
+
+    private final int[] Denominations;
     protected JPanel Panel = new JPanel();
     protected int[] Prefix;
-    private int TRN;
-    private String LName;
-    private String Address;
-    private int TelephoneNum;
-    private double Credit_Bal;
-    private int CardNumber;
-    private double Denominations;
+    private String CardNumber;
+    private String Denomination;
     private String Status;
 
-    ServiceProvider(){
-        TRN = 0;
-        LName = "";
-        Address = "";
-        TelephoneNum = 0;
-        Credit_Bal = 0.00;
+    //Default Constructor
+    ServiceProvider() {
         Prefix = new int[]{0, 0, 0, 0};
-        CardNumber = 0;
-        Denominations = 0.00;
+        CardNumber = "";
+        Denominations = new int[]{100, 500, 1000};
+        Denomination = "";
         Status = "";
 
         //Properties for Panel
@@ -53,14 +47,14 @@ abstract class ServiceProvider {
         ViewCustomerBaseButton.setFont(new Font("times new roman", Font.PLAIN, 18));
 
         //Properties for Phone Credit Creation Button
-        JButton CreatePhoneCreditButton = new JButton("Phone Credit Creation");
+        JButton CreatePhoneCreditButton = new JButton("Create Phone Credit");
         CreatePhoneCreditButton.setBounds(300, 180, 270, 30);
         CreatePhoneCreditButton.setFocusPainted(false);
         CreatePhoneCreditButton.setFocusable(false);
         CreatePhoneCreditButton.setFont(new Font("times new roman", Font.PLAIN, 18));
 
         //Properties for Phone Credit Creation Button
-        JButton ViewAllPhoneCreditButton = new JButton("View Phone Credit");
+        JButton ViewAllPhoneCreditButton = new JButton("View All Phone Credit");
         ViewAllPhoneCreditButton.setBounds(300, 230, 270, 30);
         ViewAllPhoneCreditButton.setFocusPainted(false);
         ViewAllPhoneCreditButton.setFocusable(false);
@@ -96,7 +90,7 @@ abstract class ServiceProvider {
                 Panel.add(new Administration().GetComponent());//Recreate Main menu
                 Panel.validate();
                 Panel.repaint();
-            }else{
+            } else {
                 System.out.println("Sign Out Cancelled.");
             }
         });
@@ -133,32 +127,16 @@ abstract class ServiceProvider {
     }
 
     //Initialization of Getters
-    protected int GetTRN(){
-        return TRN;
-    }
-
-    protected String GetLastName(){
-        return LName;
-    }
-
-    protected String GetAddress(){
-        return Address;
-    }
-
-    protected int GetTelephoneNumber() {
-        return TelephoneNum;
-    }
-
-    protected double GetCreditBalance(){
-        return Credit_Bal;
-    }
-
-    protected int GetCardNumber() {
+    protected String GetCardNumber() {
         return CardNumber;
     }
 
-    protected void GetDenominations(double Denominations) {
-        this.Denominations = Denominations;
+    protected int[] GetDenominations() {
+        return Denominations;
+    }
+
+    protected String GetDenomination() {
+        return Denomination;
     }
 
     protected String GetStatus() {
@@ -166,51 +144,39 @@ abstract class ServiceProvider {
     }
 
     //Initialization of Setters
-    protected void SetTRN(int TRN){
-        this.TRN = TRN;
-    }
-
-    protected void SetLastName(String LName){
-        this.LName = LName;
-    }
-
-    protected void SetAddress(String Address){
-        this.Address = Address;
-    }
-
-    protected void SetTelephoneNumber(int TelephoneNum) {
-        this.TelephoneNum = TelephoneNum;
-    }
-
-    protected void SetCreditBalance(double Credit_Bal){
-        this.Credit_Bal = Credit_Bal;
-    }
-
-    protected void GetCardNumber(int CardNumber) {
+    protected void SetCardNumber(String CardNumber) {
         this.CardNumber = CardNumber;
     }
 
-    protected double GetDenominations() {
-        return Denominations;
+    protected void SetDenomination(String Denomination) {
+        this.Denomination = Denomination;
     }
 
-    protected void setStatus(String Status) {
-        this.Status = Status;
+    protected void SetStatus() {
+        this.Status = "Available";
     }
 
-    //Abstract Functions
+    //Abstract Functions ----------
+
+    //Getter for specific service provider
     abstract protected int[] GetPrefix();
 
+    //Get and Display Company Information
     abstract protected void DisplayCompanyInformation();
 
+    //Add a customer for specific service provider
     abstract protected void AddCustomer();
 
+    //View all customer with all their information
     abstract protected void ViewCustomerBase();
 
+    //Credit new phone credit with available status
     abstract protected void CreatePhoneCredit();
 
+    //View all credit with their information
     abstract protected void ViewAllPhoneCredit();
 
+    //Return JPanel
     public JComponent GetComponent() {
         return Panel;
     }
