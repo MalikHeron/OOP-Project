@@ -5,16 +5,16 @@ public class Driver {
 
     public static void main(String[] args) {
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());//match system feel
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         InitializeFiles();
-        new MainScreen().setVisible(true);
+        new MainScreen().setVisible(true);//display window
     }
 
-    //Check if files exist if not they are created
+    //Check if files exist, if not they are created
     private static void InitializeFiles() {
         try {
             File DigicelCustomerFile = new File("files/Digicel_Customers.txt");
@@ -65,7 +65,7 @@ public class Driver {
                 }
             }
         } catch (Exception e) {
-            System.err.println(e);
+            e.printStackTrace();
         }
     }
 }

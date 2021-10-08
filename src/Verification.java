@@ -23,6 +23,7 @@ public class Verification {
     public int VerifyFields(String TRN, String Telephone, int[] CPrefix, String CompanyID) {
         int Valid = 0;
         int Index = 0;
+        String AreaCode = Telephone.substring(0, 3);
         int Prefix = Integer.parseInt(Telephone.substring(3, 6));
 
         System.out.println("Prefix: " + Prefix);
@@ -42,36 +43,40 @@ public class Verification {
             if (Telephone.length() == 10 && Valid == 1) {
                 Valid = 2;
 
-                while (Index < 4) {
-                    System.out.println("Index: " + Index);
+                if(AreaCode.equals("876")){
+                    Valid = 3;
 
-                    if (CPrefix[Index] == Prefix && CompanyID.equals("Digicel")) {
-                        System.out.println("Valid Digicel Number");
+                    while (Index < 4) {
+                        System.out.println("Index: " + Index);
 
-                        int Exists = VerifyPhoneNumber(Telephone, Prefix);
+                        if (CPrefix[Index] == Prefix && CompanyID.equals("Digicel")) {
+                            System.out.println("Valid Digicel Number");
 
-                        if (Exists == 0) {
-                            Valid = 3;
-                        } else {
-                            Valid = -2;
+                            int Exists = VerifyPhoneNumber(Telephone, Prefix);
+
+                            if (Exists == 0) {
+                                Valid = 4;
+                            } else {
+                                Valid = -2;
+                            }
+
+                            break;
+                        } else if (CPrefix[Index] == Prefix && CompanyID.equals("Flow")) {
+                            System.out.println("Valid Flow Number");
+
+                            int Exists = VerifyPhoneNumber(Telephone, Prefix);
+
+                            if (Exists == 0) {
+                                Valid = 4;
+                            } else {
+                                Valid = -2;
+                            }
+
+                            break;
                         }
 
-                        break;
-                    } else if (CPrefix[Index] == Prefix && CompanyID.equals("Flow")) {
-                        System.out.println("Valid Flow Number");
-
-                        int Exists = VerifyPhoneNumber(Telephone, Prefix);
-
-                        if (Exists == 0) {
-                            Valid = 3;
-                        } else {
-                            Valid = -2;
-                        }
-
-                        break;
+                        Index++;
                     }
-
-                    Index++;
                 }
             }
         }
@@ -126,7 +131,7 @@ public class Verification {
 
                 int Denom1 = Integer.parseInt(Denom);
 
-                while (Index < 3) {
+                while (Index < 4) {
                     System.out.println("Index: " + Index);
 
                     if (Denomination[Index] == Denom1 && CompanyID.equals("Digicel")) {
@@ -200,14 +205,14 @@ public class Verification {
                     System.out.println("Verifying Digicel Number");
 
                     //Open Files
-                    Scanner read = new Scanner(new File("files/Digicel_Customers.txt"));
+                    Scanner Read = new Scanner(new File("files/Digicel_Customers.txt"));
 
-                    while (read.hasNext()) {
-                        TRN = read.next();
-                        LName = read.nextLine();
-                        Address = read.nextLine();
-                        Telephone = read.next();
-                        CreditBal = read.nextDouble();
+                    while (Read.hasNext()) {
+                        TRN = Read.next();
+                        LName = Read.nextLine();
+                        Address = Read.nextLine();
+                        Telephone = Read.next();
+                        CreditBal = Read.nextDouble();
 
                         System.out.println(TRN + LName);
                         System.out.println(Address);
@@ -221,19 +226,19 @@ public class Verification {
                     }
 
                     //Close file
-                    read.close();
+                    Read.close();
                 } else if (FlowPrefix[Index] == Prefix) {
                     System.out.println("Verifying Flow Number");
 
                     //Read File
-                    Scanner read = new Scanner(new File("files/Flow_Customers.txt"));
+                    Scanner Read = new Scanner(new File("files/Flow_Customers.txt"));
 
-                    while (read.hasNext()) {
-                        TRN = read.next();
-                        LName = read.nextLine();
-                        Address = read.nextLine();
-                        Telephone = read.next();
-                        CreditBal = read.nextDouble();
+                    while (Read.hasNext()) {
+                        TRN = Read.next();
+                        LName = Read.nextLine();
+                        Address = Read.nextLine();
+                        Telephone = Read.next();
+                        CreditBal = Read.nextDouble();
 
                         System.out.println(TRN + LName);
                         System.out.println(Address);
@@ -247,7 +252,7 @@ public class Verification {
                     }
 
                     //Close file
-                    read.close();
+                    Read.close();
                 }
 
                 Index++;
@@ -276,14 +281,14 @@ public class Verification {
             }
 
             //Open File
-            Scanner read = new Scanner(new File(Filename));
+            Scanner Read = new Scanner(new File(Filename));
 
-            while (read.hasNext()) {
+            while (Read.hasNext()) {
                 System.out.println("Verifying Card Information");
 
-                CardNum = read.next();
-                Denomination = read.nextInt();
-                Status = read.next();
+                CardNum = Read.next();
+                Denomination = Read.nextInt();
+                Status = Read.next();
 
                 System.out.println(CardNum + " " + Denomination + " " + Status);
 
@@ -299,7 +304,7 @@ public class Verification {
             }
 
             //Close file
-            read.close();
+            Read.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

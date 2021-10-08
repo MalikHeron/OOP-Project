@@ -15,7 +15,7 @@ abstract class ServiceProvider {
     ServiceProvider() {
         Prefix = new int[]{0, 0, 0, 0};
         CardNumber = "";
-        Denominations = new int[]{100, 500, 1000};
+        Denominations = new int[]{100, 200, 500, 1000};
         Denomination = "";
         Status = "";
 

@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class Flow extends ServiceProvider {
 
+    Customer Customer = new Customer();
     private static int NumberOfCustomers;
     private final String CompanyID;
     private final String CAddress;
-    Customer Customer = new Customer();
 
     //Default Constructor
     Flow() {
@@ -209,6 +209,10 @@ public class Flow extends ServiceProvider {
                     JOptionPane.showMessageDialog(Panel, "Invalid number of digits for Phone Number",
                             "Error", JOptionPane.WARNING_MESSAGE);
                 } else if (Valid == 2) {
+                    System.err.println("Invalid Area Code");
+                    JOptionPane.showMessageDialog(Panel, "Invalid Area Code",
+                            "Error", JOptionPane.WARNING_MESSAGE);
+                } else if (Valid == 3) {
                     System.err.println("Invalid Prefix for Phone Number");
                     JOptionPane.showMessageDialog(Panel, "Invalid Prefix for Phone Number",
                             "Error", JOptionPane.WARNING_MESSAGE);
@@ -216,7 +220,7 @@ public class Flow extends ServiceProvider {
                     System.err.println("Phone Number already exists");
                     JOptionPane.showMessageDialog(Panel, "Phone Number already exists",
                             "Error", JOptionPane.WARNING_MESSAGE);
-                } else if (Valid == 3) {
+                } else if (Valid == 4) {
                     //Set Values
                     Customer.SetTRN(TRN);
                     Customer.SetLastName(LastName);
@@ -228,13 +232,13 @@ public class Flow extends ServiceProvider {
                         System.out.println("Writing to File...");
 
                         //Open file in append mode
-                        FileWriter writer = new FileWriter("files/Flow_Customers.txt", true);
-                        writer.write(Customer.GetTRN() + " ");
-                        writer.write(Customer.GetLastName() + "\n");
-                        writer.write(Customer.GetAddress() + "\n");
-                        writer.write(Customer.GetTelephoneNumber() + " ");
-                        writer.write(Customer.GetCreditBalance() + "\n");
-                        writer.close();
+                        FileWriter Writer = new FileWriter("files/Flow_Customers.txt", true);
+                        Writer.write(Customer.GetTRN() + " ");
+                        Writer.write(Customer.GetLastName() + "\n");
+                        Writer.write(Customer.GetAddress() + "\n");
+                        Writer.write(Customer.GetTelephoneNumber() + " ");
+                        Writer.write(Customer.GetCreditBalance() + "\n");
+                        Writer.close();
 
                         System.out.println("Customer Information Saved");
                         JOptionPane.showMessageDialog(Panel, "Customer Added", "Information",
@@ -266,7 +270,7 @@ public class Flow extends ServiceProvider {
 
         try {
             //Open file
-            Scanner read = new Scanner(new File("files/Flow_Customers.txt"));
+            Scanner Read = new Scanner(new File("files/Flow_Customers.txt"));
 
             //Column Names for Table
             String[] TableHead = {"TRN", "Last Name", "Address", "Telephone", "Balance"};
@@ -277,15 +281,15 @@ public class Flow extends ServiceProvider {
             //Used for counting rows
             int Count = 0;
 
-            while (read.hasNext()) {
+            while (Read.hasNext()) {
                 //Insert data from file into rows
-                Model.insertRow(Count, new Object[]{read.next(), read.nextLine(),
-                        read.nextLine(), read.next(), read.next()});
+                Model.insertRow(Count, new Object[]{Read.next(), Read.nextLine(),
+                        Read.nextLine(), Read.next(), Read.next()});
                 Count++;
             }
 
             //Close File
-            read.close();
+            Read.close();
 
             //Create new Table
             JTable Table = new JTable(Model);
@@ -433,11 +437,11 @@ public class Flow extends ServiceProvider {
                         System.out.println("Writing to File...");
 
                         //Open file in append mode
-                        FileWriter writer = new FileWriter("files/Flow_CardInformation.txt", true);
-                        writer.write(GetCardNumber() + " ");
-                        writer.write(GetDenomination() + "\n");
-                        writer.write(GetStatus() + "\n");
-                        writer.close();
+                        FileWriter Writer = new FileWriter("files/Flow_CardInformation.txt", true);
+                        Writer.write(GetCardNumber() + " ");
+                        Writer.write(GetDenomination() + "\n");
+                        Writer.write(GetStatus() + "\n");
+                        Writer.close();
 
                         System.out.println("Card Information Saved");
                         JOptionPane.showMessageDialog(Panel, "Card Added", "Information",
@@ -467,7 +471,7 @@ public class Flow extends ServiceProvider {
 
         try {
             //Open file
-            Scanner read = new Scanner(new File("files/Flow_CardInformation.txt"));
+            Scanner Read = new Scanner(new File("files/Flow_CardInformation.txt"));
 
             //Column Names for Table
             String[] TableHead = {"Card Number", "Denomination", "Status"};
@@ -478,14 +482,14 @@ public class Flow extends ServiceProvider {
             //Used for counting rows
             int Count = 0;
 
-            while (read.hasNext()) {
+            while (Read.hasNext()) {
                 //Insert data from file into rows
-                Model.insertRow(Count, new Object[]{read.next(), read.next(), read.next()});
+                Model.insertRow(Count, new Object[]{Read.next(), Read.next(), Read.next()});
                 Count++;
             }
 
             //Close File
-            read.close();
+            Read.close();
 
             //Create new Table
             JTable Table = new JTable(Model);

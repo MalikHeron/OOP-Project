@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 public class MainScreen extends JFrame {
 
     JPanel Panel = new JPanel();
+    ImageIcon Icon = new ImageIcon("images/topup_icon.png");
 
     //Default Constructor
     MainScreen() {
@@ -12,10 +13,12 @@ public class MainScreen extends JFrame {
         setPreferredSize(new Dimension(600, 400));
         setMinimumSize(new Dimension(600, 400));
         setMaximumSize(new Dimension(600, 400));
-        setResizable(false);
-        setLayout(null);
-        setLocationRelativeTo(null);
+        setResizable(false);//not resizeable
+        setLayout(null);//no layout style
+        setLocationRelativeTo(null);//Center window on screen
+        setIconImage(Icon.getImage());//set icon for window
         setTitle("Phone Card Top Up System");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Properties for Panel
         Panel.setLayout(null);

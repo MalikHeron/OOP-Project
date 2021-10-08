@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class Digicel extends ServiceProvider {
 
+    Customer Customer = new Customer();
     private static int NumberOfCustomers;
     private final String CompanyID;
     private final String CAddress;
-    Customer Customer = new Customer();
 
     //Default Constructor
     Digicel() {
@@ -209,6 +209,10 @@ public class Digicel extends ServiceProvider {
                     JOptionPane.showMessageDialog(Panel, "Invalid number of digits for Phone Number",
                             "Error", JOptionPane.WARNING_MESSAGE);
                 } else if (Valid == 2) {
+                    System.err.println("Invalid Area Code");
+                    JOptionPane.showMessageDialog(Panel, "Invalid Area Code",
+                            "Error", JOptionPane.WARNING_MESSAGE);
+                } else if (Valid == 3) {
                     System.err.println("Invalid Prefix for Phone Number");
                     JOptionPane.showMessageDialog(Panel, "Invalid Prefix for Phone Number",
                             "Error", JOptionPane.WARNING_MESSAGE);
@@ -216,7 +220,7 @@ public class Digicel extends ServiceProvider {
                     System.err.println("Phone Number already exists");
                     JOptionPane.showMessageDialog(Panel, "Phone Number already exists",
                             "Error", JOptionPane.WARNING_MESSAGE);
-                } else if (Valid == 3) {
+                } else if (Valid == 4) {
                     //Set values
                     Customer.SetTRN(TRN);
                     Customer.SetLastName(LastName);
@@ -266,7 +270,7 @@ public class Digicel extends ServiceProvider {
 
         try {
             //Open file
-            Scanner read = new Scanner(new File("files/Digicel_Customers.txt"));
+            Scanner Read = new Scanner(new File("files/Digicel_Customers.txt"));
 
             //Column Names for Table
             String[] TableHead = {"TRN", "Last Name", "Address", "Telephone", "Balance"};
@@ -277,15 +281,15 @@ public class Digicel extends ServiceProvider {
             //Used for counting rows
             int Count = 0;
 
-            while (read.hasNext()) {
+            while (Read.hasNext()) {
                 //Insert data from file into rows
-                Model.insertRow(Count, new Object[]{read.next(), read.nextLine(),
-                        read.nextLine(), read.next(), read.next()});
+                Model.insertRow(Count, new Object[]{Read.next(), Read.nextLine(),
+                        Read.nextLine(), Read.next(), Read.next()});
                 Count++;
             }
 
             //Close File
-            read.close();
+            Read.close();
 
             //Create new Table
             JTable Table = new JTable(Model);
@@ -433,11 +437,11 @@ public class Digicel extends ServiceProvider {
                         System.out.println("Writing to File...");
 
                         //Open file in append mode
-                        FileWriter writer = new FileWriter("files/Digicel_CardInformation.txt", true);
-                        writer.write(GetCardNumber() + " ");
-                        writer.write(GetDenomination() + "\n");
-                        writer.write(GetStatus() + "\n");
-                        writer.close();
+                        FileWriter Writer = new FileWriter("files/Digicel_CardInformation.txt", true);
+                        Writer.write(GetCardNumber() + " ");
+                        Writer.write(GetDenomination() + "\n");
+                        Writer.write(GetStatus() + "\n");
+                        Writer.close();
 
                         System.out.println("Card Information Saved");
                         JOptionPane.showMessageDialog(Panel, "Card Added", "Information",

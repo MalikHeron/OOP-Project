@@ -108,7 +108,7 @@ public class Customer {
         return TelephoneNum;
     }
 
-    protected double GetCreditBalance() {
+    public double GetCreditBalance() {
         return Credit_Bal;
     }
 
@@ -142,7 +142,7 @@ public class Customer {
     }
 
     public void SetCreditBalance() {
-        this.Credit_Bal = 0;
+        this.Credit_Bal = 100.0;
     }
 
     private void SetAreaCode(int AreaCode) {
@@ -325,7 +325,7 @@ public class Customer {
                     JOptionPane.showMessageDialog(Panel, "Invalid Format", "Error", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (Exception ex) {
-                System.err.println("Invalid Format.");
+                System.err.println("Invalid Format");
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(Panel, "Invalid Format", "Error", JOptionPane.WARNING_MESSAGE);
             }
@@ -460,7 +460,7 @@ public class Customer {
                     JOptionPane.showMessageDialog(Panel, "Invalid Format", "Error", JOptionPane.WARNING_MESSAGE);
                 }
             } catch (Exception ex) {
-                System.err.println("Invalid Format.");
+                System.err.println("Invalid Format");
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(Panel, "Invalid Format", "Error", JOptionPane.WARNING_MESSAGE);
             }
@@ -482,14 +482,14 @@ public class Customer {
                 System.out.println("Getting Balance for Digicel Number");
 
                 //Open Files
-                Scanner read = new Scanner(new File("files/Digicel_Customers.txt"));
+                Scanner Read = new Scanner(new File("files/Digicel_Customers.txt"));
 
-                while (read.hasNext()) {
-                    TRN = read.next();
-                    LName = read.nextLine();
-                    Address = read.nextLine();
-                    Telephone = read.next();
-                    CreditBal = read.nextDouble();
+                while (Read.hasNext()) {
+                    TRN = Read.next();
+                    LName = Read.nextLine();
+                    Address = Read.nextLine();
+                    Telephone = Read.next();
+                    CreditBal = Read.nextDouble();
 
                     System.out.println(TRN + LName);
                     System.out.println(Address);
@@ -503,19 +503,19 @@ public class Customer {
                 }
 
                 //Close file
-                read.close();
+                Read.close();
             } else if (Provider.equals("Flow")) {
                 System.out.println("Getting Balance for Flow Number");
 
                 //Read File
-                Scanner read = new Scanner(new File("files/Flow_Customers.txt"));
+                Scanner Read = new Scanner(new File("files/Flow_Customers.txt"));
 
-                while (read.hasNext()) {
-                    TRN = read.next();
-                    LName = read.nextLine();
-                    Address = read.nextLine();
-                    Telephone = read.next();
-                    CreditBal = read.nextDouble();
+                while (Read.hasNext()) {
+                    TRN = Read.next();
+                    LName = Read.nextLine();
+                    Address = Read.nextLine();
+                    Telephone = Read.next();
+                    CreditBal = Read.nextDouble();
 
                     System.out.println(TRN + LName);
                     System.out.println(Address);
@@ -529,7 +529,7 @@ public class Customer {
                 }
 
                 //Close file
-                read.close();
+                Read.close();
             }
         } catch (Exception ex) {
             System.err.println("Error Retrieving Balance.");
@@ -555,42 +555,42 @@ public class Customer {
                 System.out.println("Getting Balance for Digicel Number");
 
                 //Open Files
-                Scanner read = new Scanner(new File("files/Digicel_Customers.txt"));
-                FileWriter writer = new FileWriter("files/Temp_Digicel_Customers.txt");
+                Scanner Read = new Scanner(new File("files/Digicel_Customers.txt"));
+                FileWriter Writer = new FileWriter("files/Temp_Digicel_Customers.txt");
 
-                while (read.hasNext()) {
-                    TRN = read.next();
-                    LName = read.nextLine();
-                    Address = read.nextLine();
-                    Telephone = read.next();
-                    CreditBal = read.nextDouble();
+                while (Read.hasNext()) {
+                    TRN = Read.next();
+                    LName = Read.nextLine();
+                    Address = Read.nextLine();
+                    Telephone = Read.next();
+                    CreditBal = Read.nextDouble();
 
                     //Phone number found
                     if (Telephone.equals(PhoneNumber)) {
                         NewBalance = Balance + Denomination;
 
-                        writer.write(TRN);
-                        writer.write(LName + "\n");
-                        writer.write(Address + "\n");
-                        writer.write(Telephone + " ");
-                        writer.write(NewBalance + "\n");
+                        Writer.write(TRN);
+                        Writer.write(LName + "\n");
+                        Writer.write(Address + "\n");
+                        Writer.write(Telephone + " ");
+                        Writer.write(NewBalance + "\n");
 
                         //Change Status of Card to Used
                         UpdateCardInformation(CardNumber, Provider);
 
                         System.out.println("New Balance Stored.");
                     } else {
-                        writer.write(TRN);
-                        writer.write(LName + "\n");
-                        writer.write(Address + "\n");
-                        writer.write(Telephone + " ");
-                        writer.write(CreditBal + "\n");
+                        Writer.write(TRN);
+                        Writer.write(LName + "\n");
+                        Writer.write(Address + "\n");
+                        Writer.write(Telephone + " ");
+                        Writer.write(CreditBal + "\n");
                     }
                 }
 
                 //Close files
-                read.close();
-                writer.close();
+                Read.close();
+                Writer.close();
 
                 //Locate file
                 File DigiFile = new File("files/Digicel_Customers.txt");
@@ -622,42 +622,42 @@ public class Customer {
                 System.out.println("Getting Balance for Flow Number");
 
                 //Open Files
-                Scanner read = new Scanner(new File("files/Flow_Customers.txt"));
-                FileWriter writer = new FileWriter("files/Temp_Flow_Customers.txt");
+                Scanner Read = new Scanner(new File("files/Flow_Customers.txt"));
+                FileWriter Writer = new FileWriter("files/Temp_Flow_Customers.txt");
 
-                while (read.hasNext()) {
-                    TRN = read.next();
-                    LName = read.nextLine();
-                    Address = read.nextLine();
-                    Telephone = read.next();
-                    CreditBal = read.nextDouble();
+                while (Read.hasNext()) {
+                    TRN = Read.next();
+                    LName = Read.nextLine();
+                    Address = Read.nextLine();
+                    Telephone = Read.next();
+                    CreditBal = Read.nextDouble();
 
                     //Phone number found
                     if (Telephone.equals(PhoneNumber)) {
                         NewBalance = Balance + Denomination;
 
-                        writer.write(TRN);
-                        writer.write(LName + "\n");
-                        writer.write(Address + "\n");
-                        writer.write(Telephone + " ");
-                        writer.write(NewBalance + "\n");
+                        Writer.write(TRN);
+                        Writer.write(LName + "\n");
+                        Writer.write(Address + "\n");
+                        Writer.write(Telephone + " ");
+                        Writer.write(NewBalance + "\n");
 
                         //Change Status of Card to Used
                         UpdateCardInformation(CardNumber, Provider);
 
                         System.out.println("New Balance Stored.");
                     } else {
-                        writer.write(TRN);
-                        writer.write(LName + "\n");
-                        writer.write(Address + "\n");
-                        writer.write(Telephone + " ");
-                        writer.write(CreditBal + "\n");
+                        Writer.write(TRN);
+                        Writer.write(LName + "\n");
+                        Writer.write(Address + "\n");
+                        Writer.write(Telephone + " ");
+                        Writer.write(CreditBal + "\n");
                     }
                 }
 
                 //Close file
-                read.close();
-                writer.close();
+                Read.close();
+                Writer.close();
 
                 //Locate file
                 File FlowFile = new File("files/Flow_Customers.txt");
@@ -700,32 +700,32 @@ public class Customer {
             //Provider Digicel
             if (Provider.equals("Digicel")) {
                 //Open Files
-                Scanner read = new Scanner(new File("files/Digicel_CardInformation.txt"));
-                FileWriter writer = new FileWriter("files/Temp_Digicel_CardInformation.txt");
+                Scanner Read = new Scanner(new File("files/Digicel_CardInformation.txt"));
+                FileWriter Writer = new FileWriter("files/Temp_Digicel_CardInformation.txt");
 
                 String CardNum;
                 int Denom;
                 String Status;
 
-                while (read.hasNext()) {
-                    CardNum = read.next();
-                    Denom = read.nextInt();
-                    Status = read.next();
+                while (Read.hasNext()) {
+                    CardNum = Read.next();
+                    Denom = Read.nextInt();
+                    Status = Read.next();
 
                     if (CardNum.equals(CardNumber)) {
-                        writer.write(CardNum + " ");
-                        writer.write(Denom + " ");
-                        writer.write("Used\n");
+                        Writer.write(CardNum + " ");
+                        Writer.write(Denom + " ");
+                        Writer.write("Used\n");
                     } else {
-                        writer.write(CardNum + " ");
-                        writer.write(Denom + " ");
-                        writer.write(Status + "\n");
+                        Writer.write(CardNum + " ");
+                        Writer.write(Denom + " ");
+                        Writer.write(Status + "\n");
                     }
                 }
 
                 //Close files
-                read.close();
-                writer.close();
+                Read.close();
+                Writer.close();
 
                 //Locate file
                 File DigiFile = new File("files/Digicel_CardInformation.txt");
@@ -754,32 +754,32 @@ public class Customer {
                 }
             } else if (Provider.equals("Flow")) {
                 //Open Files
-                Scanner read = new Scanner(new File("files/Flow_CardInformation.txt"));
-                FileWriter writer = new FileWriter("files/Temp_Flow_CardInformation.txt");
+                Scanner Read = new Scanner(new File("files/Flow_CardInformation.txt"));
+                FileWriter Writer = new FileWriter("files/Temp_Flow_CardInformation.txt");
 
                 String CardNum;
                 int Denom;
                 String Status;
 
-                while (read.hasNext()) {
-                    CardNum = read.next();
-                    Denom = read.nextInt();
-                    Status = read.next();
+                while (Read.hasNext()) {
+                    CardNum = Read.next();
+                    Denom = Read.nextInt();
+                    Status = Read.next();
 
                     if (CardNum.equals(CardNumber)) {
-                        writer.write(CardNum + " ");
-                        writer.write(Denom + " ");
-                        writer.write("Used\n");
+                        Writer.write(CardNum + " ");
+                        Writer.write(Denom + " ");
+                        Writer.write("Used\n");
                     } else {
-                        writer.write(CardNum + " ");
-                        writer.write(Denom + " ");
-                        writer.write(Status + "\n");
+                        Writer.write(CardNum + " ");
+                        Writer.write(Denom + " ");
+                        Writer.write(Status + "\n");
                     }
                 }
 
                 //Close files
-                read.close();
-                writer.close();
+                Read.close();
+                Writer.close();
 
                 //Locate file
                 File DigiFile = new File("files/Flow_CardInformation.txt");

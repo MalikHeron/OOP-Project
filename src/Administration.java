@@ -154,7 +154,7 @@ public class Administration {
         int Total = (DigicelTotal + FlowTotal);
 
         System.out.println("Total Number of Customers: " + Total);
-        JOptionPane.showMessageDialog(Panel, Total, "Total Number of Customer", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(Panel, Total, "Total Number of Customers", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public JComponent GetComponent() {
