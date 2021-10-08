@@ -439,7 +439,7 @@ public class Flow extends ServiceProvider {
                         //Open file in append mode
                         FileWriter Writer = new FileWriter("files/Flow_CardInformation.txt", true);
                         Writer.write(GetCardNumber() + " ");
-                        Writer.write(GetDenomination() + "\n");
+                        Writer.write(GetDenomination() + " ");
                         Writer.write(GetStatus() + "\n");
                         Writer.close();
 
