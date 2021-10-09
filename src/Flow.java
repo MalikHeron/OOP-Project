@@ -39,11 +39,11 @@ public class Flow extends ServiceProvider {
     }
 
     //Initialization of Getters
-    private String GetCompanyID() {
+    public String GetCompanyID() {
         return CompanyID;
     }
 
-    private String GetCompanyAddress() {
+    public String GetCompanyAddress() {
         return CompanyAddress;
     }
 

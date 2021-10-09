@@ -118,15 +118,15 @@ public class Customer {
         return CreditBalance;
     }
 
-    private int GetAreaCode() {
+    public int GetAreaCode() {
         return AreaCode;
     }
 
-    private int GetPrefix() {
+    public int GetPrefix() {
         return Prefix;
     }
 
-    private int GetSerialNumber() {
+    public int GetSerialNumber() {
         return SerialNumber;
     }
 
@@ -151,15 +151,15 @@ public class Customer {
         this.CreditBalance = 100.0;
     }
 
-    private void SetAreaCode(int AreaCode) {
+    public void SetAreaCode(int AreaCode) {
         this.AreaCode = AreaCode;
     }
 
-    private void SetPrefix(int Prefix) {
+    public void SetPrefix(int Prefix) {
         this.Prefix = Prefix;
     }
 
-    private void SetSerialNumber(int SerialNumber) {
+    public void SetSerialNumber(int SerialNumber) {
         this.SerialNumber = SerialNumber;
     }
 
