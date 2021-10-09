@@ -8,12 +8,18 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
 
+/**
+ * Malik Heron 2001158
+ * Sydney Chambers 2005734
+ * David White 2001610
+ * Monique Bennett 2004188
+ */
 public class Flow extends ServiceProvider {
 
-    Customer Customer = new Customer();
     private static int NumberOfCustomers;
     private final String CompanyID;
-    private final String CAddress;
+    private final String CompanyAddress;
+    Customer Customer = new Customer();
 
     //Default Constructor
     Flow() {
@@ -21,7 +27,7 @@ public class Flow extends ServiceProvider {
 
         //Initialize variables
         CompanyID = "Flow";
-        CAddress = "Flow Jamaica Headquarters, 2-6 Carlton Cres, Kingston";
+        CompanyAddress = "Flow Jamaica Headquarters, 2-6 Carlton Cres, Kingston";
         NumberOfCustomers = 0;
         Prefix = new int[]{601, 602, 603, 604};
 
@@ -62,7 +68,7 @@ public class Flow extends ServiceProvider {
     }
 
     private String GetCompanyAddress() {
-        return CAddress;
+        return CompanyAddress;
     }
 
     public int[] GetPrefix() {
@@ -194,7 +200,7 @@ public class Flow extends ServiceProvider {
             System.out.println("Process Button Pressed");
 
             if (Check.VerifyFieldLengths(TRN, LastName, Address, PhoneNumber)) {
-                int Valid = Check.VerifyFields(TRN, PhoneNumber, GetPrefix(), GetCompanyID());
+                int Valid = Check.VerifyFields(TRN, LastName, PhoneNumber, GetPrefix(), GetCompanyID());
 
                 if (Valid == 0) {
                     System.err.println("Invalid Length for TRN");
@@ -208,19 +214,27 @@ public class Flow extends ServiceProvider {
                     System.err.println("Invalid number of digits for Phone Number");
                     JOptionPane.showMessageDialog(Panel, "Invalid number of digits for Phone Number",
                             "Error", JOptionPane.WARNING_MESSAGE);
-                } else if (Valid == 2) {
+                } else if (Valid == -2) {
+                    System.err.println("Phone Number is not numerical");
+                    JOptionPane.showMessageDialog(Panel, "Phone Number is not numerical",
+                            "Error", JOptionPane.WARNING_MESSAGE);
+                } else if (Valid == -3) {
+                    System.err.println("Last Name is not only Letters");
+                    JOptionPane.showMessageDialog(Panel, "Last Name is not only Letters",
+                            "Error", JOptionPane.WARNING_MESSAGE);
+                } else if (Valid == 3) {
                     System.err.println("Invalid Area Code");
                     JOptionPane.showMessageDialog(Panel, "Invalid Area Code",
                             "Error", JOptionPane.WARNING_MESSAGE);
-                } else if (Valid == 3) {
+                } else if (Valid == 4) {
                     System.err.println("Invalid Prefix for Phone Number");
                     JOptionPane.showMessageDialog(Panel, "Invalid Prefix for Phone Number",
                             "Error", JOptionPane.WARNING_MESSAGE);
-                } else if (Valid == -2) {
+                } else if (Valid == -4) {
                     System.err.println("Phone Number already exists");
                     JOptionPane.showMessageDialog(Panel, "Phone Number already exists",
                             "Error", JOptionPane.WARNING_MESSAGE);
-                } else if (Valid == 4) {
+                } else if (Valid == 5) {
                     //Set Values
                     Customer.SetTRN(TRN);
                     Customer.SetLastName(LastName);
@@ -293,6 +307,8 @@ public class Flow extends ServiceProvider {
 
             //Create new Table
             JTable Table = new JTable(Model);
+            Table.setDefaultEditor(Object.class, null);//Set to not editable
+            Table.setAutoCreateRowSorter(true);//Enable sorting by columns
             Table.setVisible(true);
             Table.setOpaque(false);
 
@@ -493,6 +509,8 @@ public class Flow extends ServiceProvider {
 
             //Create new Table
             JTable Table = new JTable(Model);
+            Table.setDefaultEditor(Object.class, null);//Set to not editable
+            Table.setAutoCreateRowSorter(true);//Enable sorting by columns
             Table.setVisible(true);
             Table.setOpaque(false);
 

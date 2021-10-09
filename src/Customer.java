@@ -5,14 +5,20 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.Scanner;
 
+/**
+ * Malik Heron 2001158
+ * Sydney Chambers 2005734
+ * David White 2001610
+ * Monique Bennett 2004188
+ */
 public class Customer {
 
     private final JPanel Panel = new JPanel();
     private String TRN;
-    private String LName;
+    private String LastName;
     private String Address;
-    private String TelephoneNum;
-    private double Credit_Bal;
+    private String TelephoneNumber;
+    private double CreditBalance;
     private int AreaCode;
     private int Prefix;
     private int SerialNumber;
@@ -21,10 +27,10 @@ public class Customer {
     Customer() {
         //Initialize variables
         TRN = "";
-        LName = "";
+        LastName = "";
         Address = "";
-        TelephoneNum = "";
-        Credit_Bal = 0.00;
+        TelephoneNumber = "";
+        CreditBalance = 0.00;
         AreaCode = 0;
         Prefix = 0;
         SerialNumber = 0;
@@ -97,7 +103,7 @@ public class Customer {
     }
 
     public String GetLastName() {
-        return LName;
+        return LastName;
     }
 
     public String GetAddress() {
@@ -105,11 +111,11 @@ public class Customer {
     }
 
     public String GetTelephoneNumber() {
-        return TelephoneNum;
+        return TelephoneNumber;
     }
 
     public double GetCreditBalance() {
-        return Credit_Bal;
+        return CreditBalance;
     }
 
     private int GetAreaCode() {
@@ -130,7 +136,7 @@ public class Customer {
     }
 
     public void SetLastName(String LName) {
-        this.LName = LName;
+        this.LastName = LName;
     }
 
     public void SetAddress(String Address) {
@@ -138,11 +144,11 @@ public class Customer {
     }
 
     public void SetTelephoneNumber(String TelephoneNum) {
-        this.TelephoneNum = TelephoneNum;
+        this.TelephoneNumber = TelephoneNum;
     }
 
     public void SetCreditBalance() {
-        this.Credit_Bal = 100.0;
+        this.CreditBalance = 100.0;
     }
 
     private void SetAreaCode(int AreaCode) {
@@ -270,9 +276,9 @@ public class Customer {
                                         Exists, PhoneNumber, "Digicel");
 
                                 //Display New Balance
-                                System.out.println("New Balance: $" + NewBalance);
-                                JOptionPane.showMessageDialog(Panel, "$" + NewBalance,
-                                        "Balance", JOptionPane.INFORMATION_MESSAGE);
+                                System.out.println("New Balance is $" + NewBalance);
+                                JOptionPane.showMessageDialog(Panel, "New Balance is $" + NewBalance,
+                                        "Information", JOptionPane.INFORMATION_MESSAGE);
                             } else if (Exists == 2) {
                                 System.out.println("Card Number already used.");
                                 JOptionPane.showMessageDialog(Panel, "Card Number already used",
@@ -296,9 +302,9 @@ public class Customer {
                                         Exists, PhoneNumber, "Flow");
 
                                 //Display New Balance
-                                System.out.println("New Balance: $" + NewBalance);
-                                JOptionPane.showMessageDialog(Panel, "$" + NewBalance,
-                                        "Balance", JOptionPane.INFORMATION_MESSAGE);
+                                System.out.println("New Balance is $" + NewBalance);
+                                JOptionPane.showMessageDialog(Panel, "New Balance is $" + NewBalance,
+                                        "Information", JOptionPane.INFORMATION_MESSAGE);
                             } else if (Exists == 2) {
                                 System.out.println("Card Number already used.");
                             } else {
@@ -432,15 +438,15 @@ public class Customer {
 
                         if (Exists == 1) {
                             //Get and Display Balance from Provider Digicel
-                            JOptionPane.showMessageDialog(Panel, "$" + GetBalance(PhoneNumber, "Digicel"),
-                                    "Balance", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(Panel, "Current Balance is $" + GetBalance(PhoneNumber, "Digicel"),
+                                    "Information", JOptionPane.INFORMATION_MESSAGE);
 
                             //Clear InputField
                             InputField.setText("");
                         } else if (Exists == 2) {
                             //Get and Display Balance from Provider Flow
-                            JOptionPane.showMessageDialog(Panel, "$" + GetBalance(PhoneNumber, "Flow"),
-                                    "Balance", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(Panel, "Current Balance is $" + GetBalance(PhoneNumber, "Flow"),
+                                    "Information", JOptionPane.INFORMATION_MESSAGE);
 
                             //Clear InputField
                             InputField.setText("");
@@ -468,7 +474,7 @@ public class Customer {
     }
 
     //Get Balance of Specified Phone Number
-    private double GetBalance(String PhoneNumber, String Provider) {
+    private double GetBalance(String TelephoneNumber, String Provider) {
         double Balance = 0.00;
 
         try {
@@ -495,7 +501,7 @@ public class Customer {
                     System.out.println(Address);
                     System.out.println(Telephone + " " + CreditBal);
 
-                    if (Telephone.equals(PhoneNumber)) {
+                    if (Telephone.equals(TelephoneNumber)) {
                         System.out.println("Balance Retrieved.");
                         Balance = CreditBal;
                         break;
@@ -521,7 +527,7 @@ public class Customer {
                     System.out.println(Address);
                     System.out.println(Telephone + " " + CreditBal);
 
-                    if (Telephone.equals(PhoneNumber)) {
+                    if (Telephone.equals(TelephoneNumber)) {
                         System.out.println("Balance Retrieved.");
                         Balance = CreditBal;
                         break;
@@ -540,7 +546,7 @@ public class Customer {
     }
 
     //Add Credit to Balance
-    private double CalculateBalance(double Balance, String CardNumber, int Denomination, String PhoneNumber, String Provider) {
+    private double CalculateBalance(double Balance, String CardNumber, int Denomination, String TelephoneNumber, String Provider) {
         double NewBalance = 0;
 
         try {
@@ -566,7 +572,7 @@ public class Customer {
                     CreditBal = Read.nextDouble();
 
                     //Phone number found
-                    if (Telephone.equals(PhoneNumber)) {
+                    if (Telephone.equals(TelephoneNumber)) {
                         NewBalance = Balance + Denomination;
 
                         Writer.write(TRN);
@@ -633,7 +639,7 @@ public class Customer {
                     CreditBal = Read.nextDouble();
 
                     //Phone number found
-                    if (Telephone.equals(PhoneNumber)) {
+                    if (Telephone.equals(TelephoneNumber)) {
                         NewBalance = Balance + Denomination;
 
                         Writer.write(TRN);

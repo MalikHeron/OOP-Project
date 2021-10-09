@@ -16,3 +16,6 @@ Lime Tree, Trelawny
 192833833 White
 Mandeville, Manchester
 8766048222 100.0
+230232113 Smith
+Black River, St.Elizabeth
+8766042233 100.0

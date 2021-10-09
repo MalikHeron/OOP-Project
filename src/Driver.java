@@ -1,6 +1,12 @@
 import javax.swing.*;
 import java.io.File;
 
+/**
+ * Malik Heron 2001158
+ * Sydney Chambers 2005734
+ * David White 2001610
+ * Monique Bennett 2004188
+ */
 public class Driver {
 
     public static void main(String[] args) {

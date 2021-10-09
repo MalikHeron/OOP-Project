@@ -1,16 +1,22 @@
 import java.io.File;
 import java.util.Scanner;
 
+/**
+ * Malik Heron 2001158
+ * Sydney Chambers 2005734
+ * David White 2001610
+ * Monique Bennett 2004188
+ */
 public class Verification {
 
     //Verify Field Lengths when adding a customer
-    public boolean VerifyFieldLengths(String TRN, String LastName, String Address, String Telephone) {
+    public boolean VerifyFieldLengths(String TRN, String LastName, String Address, String TelephoneNumber) {
         boolean Valid = false;
 
         int Length = TRN.length();
         int Length2 = LastName.length();
         int Length3 = Address.length();
-        int Length4 = Telephone.length();
+        int Length4 = TelephoneNumber.length();
 
         if (Length > 0 && Length2 > 0 && Length3 > 0 && Length4 > 0) {
             Valid = true;
@@ -19,14 +25,11 @@ public class Verification {
         return Valid;
     }
 
-    //Verify TRN and Phone Number when adding a Customer
-    public int VerifyFields(String TRN, String Telephone, int[] CPrefix, String CompanyID) {
+    //Verify TRN, Last Name and Phone Number when adding a Customer
+    public int VerifyFields(String TRN, String LastName, String Telephone, int[] CompanyPrefix, String CompanyID) {
         int Valid = 0;
         int Index = 0;
         String AreaCode = Telephone.substring(0, 3);
-        int Prefix = Integer.parseInt(Telephone.substring(3, 6));
-
-        System.out.println("Prefix: " + Prefix);
 
         if (TRN.length() == 9) {
             Valid = 1;
@@ -43,39 +46,65 @@ public class Verification {
             if (Telephone.length() == 10 && Valid == 1) {
                 Valid = 2;
 
-                if(AreaCode.equals("876")){
+                //Check if Telephone Number is only digits
+                for (int i = 0; i < Telephone.length(); i++) {
+                    boolean Flag = Character.isDigit(Telephone.charAt(i));
+
+                    if (!Flag) {
+                        Valid = -2;
+                    }
+                }
+
+                if (Valid == 2) {
                     Valid = 3;
 
-                    while (Index < 4) {
-                        System.out.println("Index: " + Index);
+                    //Check if Last Name is only Letters
+                    for (int i = 0; i < LastName.length(); i++) {
+                        boolean Flag = Character.isLetter(LastName.charAt(i));
 
-                        if (CPrefix[Index] == Prefix && CompanyID.equals("Digicel")) {
-                            System.out.println("Valid Digicel Number");
-
-                            int Exists = VerifyPhoneNumber(Telephone, Prefix);
-
-                            if (Exists == 0) {
-                                Valid = 4;
-                            } else {
-                                Valid = -2;
-                            }
-
-                            break;
-                        } else if (CPrefix[Index] == Prefix && CompanyID.equals("Flow")) {
-                            System.out.println("Valid Flow Number");
-
-                            int Exists = VerifyPhoneNumber(Telephone, Prefix);
-
-                            if (Exists == 0) {
-                                Valid = 4;
-                            } else {
-                                Valid = -2;
-                            }
-
-                            break;
+                        if (!Flag) {
+                            Valid = -3;
                         }
+                    }
 
-                        Index++;
+                    if (AreaCode.equals("876") && Valid == 3) {
+                        Valid = 4;
+
+                        int Prefix = Integer.parseInt(Telephone.substring(3, 6));
+
+                        System.out.println("Prefix: " + Prefix);
+
+                        while (Index < 4) {
+                            System.out.println("Index: " + Index);
+
+                            if (CompanyPrefix[Index] == Prefix && CompanyID.equals("Digicel")) {
+                                System.out.println("Valid Digicel Number");
+
+                                int Exists = VerifyPhoneNumber(Telephone, Prefix);
+
+                                if (Exists == 0) {
+                                    Valid = 5;
+                                } else {
+                                    Valid = -4;
+                                }
+
+                                break;
+                            } else if (CompanyPrefix[Index] == Prefix && CompanyID.equals("Flow")) {
+                                System.out.println("Valid Flow Number");
+
+                                int Exists = VerifyPhoneNumber(Telephone, Prefix);
+
+                                if (Exists == 0) {
+                                    Valid = 5;
+                                } else {
+                                    Valid = -4;
+                                }
+
+                                break;
+                            }
+
+                            Index++;
+                        }
                     }
                 }
             }
@@ -98,7 +127,7 @@ public class Verification {
         return Valid;
     }
 
-    //Verify CardNumber and Denomination when adding a Customer
+    //Verify CardNumber and Denomination when adding a Credit Card
     public int VerifyFields(String CardNumber, String Denom, String CompanyID, int[] Denomination) {
         int Valid = 0;
         int Index = 0;
@@ -184,8 +213,8 @@ public class Verification {
         return State;
     }
 
-    //Verify Customer PhoneNumber when trying to Add Credit
-    public int VerifyPhoneNumber(String PhoneNumber, int Prefix) {
+    //Verify Customer TelephoneNumber when trying to Add Credit
+    public int VerifyPhoneNumber(String TelephoneNumber, int Prefix) {
         int Exists = 0;
 
         try {
@@ -218,7 +247,7 @@ public class Verification {
                         System.out.println(Address);
                         System.out.println(Telephone + " " + CreditBal);
 
-                        if (Telephone.equals(PhoneNumber)) {
+                        if (Telephone.equals(TelephoneNumber)) {
                             System.out.println("Phone Number Exists for Digicel.");
                             Exists = 1;
                             break;
@@ -244,7 +273,7 @@ public class Verification {
                         System.out.println(Address);
                         System.out.println(Telephone + " " + CreditBal);
 
-                        if (Telephone.equals(PhoneNumber)) {
+                        if (Telephone.equals(TelephoneNumber)) {
                             System.out.println("Phone Number Exists for Flow.");
                             Exists = 2;
                             break;

@@ -2,6 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+/**
+ * Malik Heron 2001158
+ * Sydney Chambers 2005734
+ * David White 2001610
+ * Monique Bennett 2004188
+ */
 public class Administration {
 
     private final JPanel Panel = new JPanel();
@@ -154,7 +160,7 @@ public class Administration {
         int Total = (DigicelTotal + FlowTotal);
 
         System.out.println("Total Number of Customers: " + Total);
-        JOptionPane.showMessageDialog(Panel, Total, "Total Number of Customers", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(Panel, "Total Number of Customers is " + Total, "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public JComponent GetComponent() {
