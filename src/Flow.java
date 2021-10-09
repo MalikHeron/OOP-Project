@@ -81,7 +81,7 @@ public class Flow extends ServiceProvider {
     }
 
     //Get and Display Company Information
-    protected void DisplayCompanyInformation() {
+    public void DisplayCompanyInformation() {
         System.out.println("Company ID: " + GetCompanyID());
         System.out.println("Address: " + GetCompanyAddress());
         System.out.println("Number of Customers: " + GetNumberOfCustomers());
@@ -92,7 +92,7 @@ public class Flow extends ServiceProvider {
     }
 
     //Add a customer for service provider flow
-    protected void AddCustomer() {
+    public void AddCustomer() {
         System.out.println("Flow Add Customer Button Pressed");
 
         //Remove previous display
@@ -284,7 +284,7 @@ public class Flow extends ServiceProvider {
     }
 
     //View all customer with all their information
-    protected void ViewCustomerBase() {
+    public void ViewCustomerBase() {
         System.out.println("Flow View Customer Base Button Pressed");
 
         try {
@@ -335,7 +335,7 @@ public class Flow extends ServiceProvider {
     }
 
     //Credit new phone credit with available status
-    protected void CreatePhoneCredit() {
+    public void CreatePhoneCredit() {
         System.out.println("Flow Phone Credit Creation Button Pressed");
 
         //Remove previous display
@@ -487,7 +487,7 @@ public class Flow extends ServiceProvider {
     }
 
     //View all credit with their information
-    protected void ViewAllPhoneCredit() {
+    public void ViewAllPhoneCredit() {
         System.out.println("Flow View Phone Credit Button Pressed");
 
         try {

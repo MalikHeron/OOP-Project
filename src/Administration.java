@@ -87,11 +87,10 @@ public class Administration {
 
             if (GetPassword().equals("TheBiggerBetterNetwork2021") && GetProvider().equals("Digicel")) {
                 System.out.println("Logged In");
-                ServiceProvider DisplayDigicel = new Digicel();
 
                 //Remove previous display
                 Panel.removeAll();
-                Panel.add(DisplayDigicel.GetComponent());//Recreate Main menu
+                Panel.add(new Digicel().GetComponent());//Recreate Main menu by calling method of class Digicel
                 Panel.validate();
                 Panel.repaint();
             } else {
@@ -110,11 +109,10 @@ public class Administration {
 
             if (GetPassword().equals("TheWayIFlow2021") && GetProvider().equals("Flow")) {
                 System.out.println("Logged In");
-                ServiceProvider DisplayFlow = new Flow();
 
                 //Remove previous display
                 Panel.removeAll();
-                Panel.add(DisplayFlow.GetComponent());//Recreate Main menu
+                Panel.add(new Flow().GetComponent());//Recreate Main menu by calling method of class Flow
                 Panel.validate();
                 Panel.repaint();
             } else {

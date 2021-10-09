@@ -213,7 +213,7 @@ public class Customer {
         BackButton.addActionListener((ActionEvent e) -> {
             //Remove previous display
             Panel.removeAll();
-            Panel.add(new Customer().GetComponent());//Recreate Main menu
+            Panel.add(new Customer().GetComponent());//Recreate Main menu by creating a new instance of class Customer
             Panel.validate();
             Panel.repaint();
 
@@ -388,7 +388,7 @@ public class Customer {
         BackButton.addActionListener((ActionEvent e) -> {
             //Remove previous display
             Panel.removeAll();
-            Panel.add(new Customer().GetComponent());//Recreate Main menu
+            Panel.add(new Customer().GetComponent());//Recreate Main menu by creating a new instance of class Customer
             Panel.validate();
             Panel.repaint();
 
