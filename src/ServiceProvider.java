@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 abstract class ServiceProvider {
 
     protected JPanel Panel = new JPanel();
+    protected ImageIcon Icon = new ImageIcon("images/topup_icon.png");
     private final int[] Denominations;
     protected int[] Prefix;
     private String CardNumber;
@@ -86,7 +87,7 @@ abstract class ServiceProvider {
             System.out.println("Sign Out Button Pressed");
 
             int selection = JOptionPane.showConfirmDialog(Panel, "Do you want to continue?",
-                    "Sign Out prompt", JOptionPane.YES_NO_OPTION);
+                    "Sign Out Prompt", JOptionPane.YES_NO_OPTION);
 
             boolean isYes = (selection == JOptionPane.YES_NO_OPTION);
 

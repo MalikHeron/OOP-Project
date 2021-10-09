@@ -40,14 +40,14 @@ public class Administration {
 
         //Properties for Digicel Button
         JButton DigicelButton = new JButton("Digicel Login");
-        DigicelButton.setBounds(200, 155, 200, 80);
+        DigicelButton.setBounds(200, 70, 200, 80);
         DigicelButton.setFocusPainted(false);
         DigicelButton.setFocusable(false);
         DigicelButton.setFont(new Font("times new roman", Font.PLAIN, 24));
 
         //Properties for Flow Button
         JButton FlowButton = new JButton("Flow Login");
-        FlowButton.setBounds(200, 70, 200, 80);
+        FlowButton.setBounds(200, 155, 200, 80);
         FlowButton.setFocusPainted(false);
         FlowButton.setFocusable(false);
         FlowButton.setFont(new Font("times new roman", Font.PLAIN, 24));
@@ -81,7 +81,7 @@ public class Administration {
         DigicelButton.addActionListener((ActionEvent e) -> {
             System.out.println("Digicel Button Pressed");
             SetProvider("Digicel");
-            String Pass = JOptionPane.showInputDialog(Panel, null, "Password",
+            String Pass = JOptionPane.showInputDialog(Panel, null, "Digicel Password",
                     JOptionPane.INFORMATION_MESSAGE);
             SetPassword(Pass);
 
@@ -103,7 +103,7 @@ public class Administration {
         FlowButton.addActionListener((ActionEvent e) -> {
             System.out.println("FLow Button Pressed");
             SetProvider("Flow");
-            String Pass = JOptionPane.showInputDialog(Panel, null, "Password",
+            String Pass = JOptionPane.showInputDialog(Panel, null, "Flow Password",
                     JOptionPane.INFORMATION_MESSAGE);
             SetPassword(Pass);
 

@@ -94,7 +94,7 @@ public class MainScreen extends JFrame {
             System.out.println("Exit Button Pressed");
 
             int selection = JOptionPane.showConfirmDialog(this, "Do you want to continue?",
-                    "Exit prompt", JOptionPane.YES_NO_OPTION);
+                    "Exit Prompt", JOptionPane.YES_NO_OPTION);
 
             boolean isYes = (selection == JOptionPane.YES_NO_OPTION);
 

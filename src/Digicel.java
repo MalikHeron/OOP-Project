@@ -325,6 +325,7 @@ public class Digicel extends ServiceProvider {
             Frame.setSize(600, 400);
             Frame.setMinimumSize(new Dimension(600, 400));
             Frame.setTitle("All Customers");
+            Frame.setIconImage(Icon.getImage());
             Frame.pack();
 
             //Add table to window
@@ -527,6 +528,7 @@ public class Digicel extends ServiceProvider {
             Frame.setSize(600, 400);
             Frame.setMinimumSize(new Dimension(600, 400));
             Frame.setTitle("All Credit Information");
+            Frame.setIconImage(Icon.getImage());
             Frame.pack();
 
             //Add table to window
