@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="PhoneCardSystem:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PhoneCardSystem_jar</output-path>
+    <root id="archive" name="PhoneCardSystem.jar">
+      <element id="module-output" name="PhoneCardSystem" />
+    </root>
+  </artifact>
+</component>
