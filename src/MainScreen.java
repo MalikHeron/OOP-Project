@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 /**
  * Malik Heron 2001158
  * Sydney Chambers 2005734
- * David White 2001610
+ * David Walker 2001610
  * Monique Bennett 2004188
  */
 public class MainScreen extends JFrame {
