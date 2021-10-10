@@ -78,7 +78,7 @@ public class MainScreen extends JFrame {
             Panel.repaint();
         });
 
-        //Action when AdminButton is Pressed
+        //Action when AdministrationButton is Pressed
         AdministrationButton.addActionListener((ActionEvent e) -> {
             System.out.println("Admin Button Pressed");
 
@@ -89,7 +89,7 @@ public class MainScreen extends JFrame {
             Panel.repaint();
         });
 
-        //Action when AdminButton is Pressed
+        //Action when ExitButton is Pressed
         ExitButton.addActionListener((ActionEvent e) -> {
             System.out.println("Exit Button Pressed");
 

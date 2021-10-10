@@ -479,9 +479,9 @@ public class Customer {
 
         try {
             String TRN;
-            String LName;
+            String LastName;
             String Address;
-            double CreditBal;
+            double CreditBalance;
             String Telephone;
 
             if (Provider.equals("Digicel")) {
@@ -492,18 +492,18 @@ public class Customer {
 
                 while (Read.hasNext()) {
                     TRN = Read.next();
-                    LName = Read.nextLine();
+                    LastName = Read.nextLine();
                     Address = Read.nextLine();
                     Telephone = Read.next();
-                    CreditBal = Read.nextDouble();
+                    CreditBalance = Read.nextDouble();
 
-                    System.out.println(TRN + LName);
+                    System.out.println(TRN + LastName);
                     System.out.println(Address);
-                    System.out.println(Telephone + " " + CreditBal);
+                    System.out.println(Telephone + " " + CreditBalance);
 
                     if (Telephone.equals(TelephoneNumber)) {
                         System.out.println("Balance Retrieved.");
-                        Balance = CreditBal;
+                        Balance = CreditBalance;
                         break;
                     }
                 }
@@ -518,18 +518,18 @@ public class Customer {
 
                 while (Read.hasNext()) {
                     TRN = Read.next();
-                    LName = Read.nextLine();
+                    LastName = Read.nextLine();
                     Address = Read.nextLine();
                     Telephone = Read.next();
-                    CreditBal = Read.nextDouble();
+                    CreditBalance = Read.nextDouble();
 
-                    System.out.println(TRN + LName);
+                    System.out.println(TRN + LastName);
                     System.out.println(Address);
-                    System.out.println(Telephone + " " + CreditBal);
+                    System.out.println(Telephone + " " + CreditBalance);
 
                     if (Telephone.equals(TelephoneNumber)) {
                         System.out.println("Balance Retrieved.");
-                        Balance = CreditBal;
+                        Balance = CreditBalance;
                         break;
                     }
                 }
@@ -788,28 +788,28 @@ public class Customer {
                 Writer.close();
 
                 //Locate file
-                File DigiFile = new File("files/Flow_CardInformation.txt");
+                File FlowFile = new File("files/Flow_CardInformation.txt");
 
                 //File exists
-                if (DigiFile.exists()) {
+                if (FlowFile.exists()) {
                     //Attempt to delete file
-                    if (DigiFile.delete()) {
-                        System.out.println(DigiFile + " Deleted");
+                    if (FlowFile.delete()) {
+                        System.out.println(FlowFile + " Deleted");
 
                         //Locate file
-                        File TempDigiFile = new File("files/Temp_Flow_CardInformation.txt");
+                        File TempFlowFile = new File("files/Temp_Flow_CardInformation.txt");
 
                         //File exists
-                        if (TempDigiFile.exists()) {
+                        if (TempFlowFile.exists()) {
                             //Attempt to rename file
-                            if (TempDigiFile.renameTo(new File("files/Flow_CardInformation.txt"))) {
-                                System.out.println(TempDigiFile + " Renamed");
+                            if (TempFlowFile.renameTo(new File("files/Flow_CardInformation.txt"))) {
+                                System.out.println(TempFlowFile + " Renamed");
                             } else {
-                                System.err.println("Error renaming " + TempDigiFile);
+                                System.err.println("Error renaming " + TempFlowFile);
                             }
                         }
                     } else {
-                        System.err.println("Error deleting " + DigiFile);
+                        System.err.println("Error deleting " + FlowFile);
                     }
                 }
             }
