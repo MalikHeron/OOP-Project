@@ -153,6 +153,14 @@ abstract class ServiceProvider {
         return Status;
     }
 
+    protected String GetCompanyID() {
+        return CompanyID;
+    }
+
+    protected String GetCompanyAddress() {
+        return CompanyAddress;
+    }
+
     //Initialization of Setters
     protected void SetCardNumber(String CardNumber) {
         this.CardNumber = CardNumber;

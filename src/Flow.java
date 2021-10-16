@@ -38,16 +38,8 @@ public class Flow extends ServiceProvider {
     }
 
     //Initialization of Getters
-    public String GetCompanyID() {
-        return CompanyID;
-    }
-
     public String GetParentCompanyName(){
         return ParentCompanyName;
-    }
-
-    public String GetCompanyAddress() {
-        return CompanyAddress;
     }
 
     public static int GetNumberOfCustomers() {

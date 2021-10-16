@@ -38,14 +38,6 @@ public class Digicel extends ServiceProvider {
     }
 
     //Initialization of Getters
-    public String GetCompanyID() {
-        return CompanyID;
-    }
-
-    public String GetCompanyAddress() {
-        return CompanyAddress;
-    }
-
     public int GetNumberOfBranches(){
         return NumberOfBranches;
     }
