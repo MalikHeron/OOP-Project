@@ -17,6 +17,9 @@ abstract class ServiceProvider {
     private String CardNumber;
     private String Denomination;
     private String Status;
+    protected static int NumberOfCustomers;
+    protected String CompanyID;
+    protected String CompanyAddress;
 
     //Default Constructor
     ServiceProvider() {

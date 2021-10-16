@@ -16,10 +16,8 @@ import java.util.Scanner;
  */
 public class Flow extends ServiceProvider {
 
-    private static int NumberOfCustomers;
-    private final String CompanyID;
-    private final String CompanyAddress;
     Customer Customer = new Customer();
+    private final String ParentCompanyName;
 
     //Default Constructor
     Flow() {
@@ -27,6 +25,7 @@ public class Flow extends ServiceProvider {
 
         //Initialize variables
         CompanyID = "Flow";
+        ParentCompanyName = "Liberty Latin";
         CompanyAddress = "Flow Jamaica Headquarters, 2-6 Carlton Cres, Kingston";
         NumberOfCustomers = 0;
         Prefix = new int[]{601, 602, 603, 604};
@@ -41,6 +40,10 @@ public class Flow extends ServiceProvider {
     //Initialization of Getters
     public String GetCompanyID() {
         return CompanyID;
+    }
+
+    public String GetParentCompanyName(){
+        return ParentCompanyName;
     }
 
     public String GetCompanyAddress() {
@@ -83,11 +86,13 @@ public class Flow extends ServiceProvider {
     //Get and Display Company Information
     public void DisplayCompanyInformation() {
         System.out.println("Company ID: " + GetCompanyID());
+        System.out.println("Parent Company Name: "+ GetParentCompanyName());
         System.out.println("Address: " + GetCompanyAddress());
         System.out.println("Number of Customers: " + GetNumberOfCustomers());
 
         JOptionPane.showMessageDialog(Panel, "Company ID: " + GetCompanyID() +
-                        "\nAddress: " + GetCompanyAddress() + "\nNumber of Customers: " + GetNumberOfCustomers(),
+                        "\nParent Company Name: "+ GetParentCompanyName()+ "\nAddress: " + GetCompanyAddress() +
+                        "\nNumber of Customers: " + GetNumberOfCustomers(),
                 "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 

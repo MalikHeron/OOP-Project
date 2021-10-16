@@ -16,10 +16,8 @@ import java.util.Scanner;
  */
 public class Digicel extends ServiceProvider {
 
-    private static int NumberOfCustomers;
-    private final String CompanyID;
-    private final String CompanyAddress;
     Customer Customer = new Customer();
+    private final int NumberOfBranches;
 
     //Default Constructor
     Digicel() {
@@ -28,6 +26,7 @@ public class Digicel extends ServiceProvider {
         //Initialize variables
         CompanyID = "Digicel";
         CompanyAddress = "14 Ocean Blvd, Kingston";
+        NumberOfBranches = 128;
         NumberOfCustomers = 0;
         Prefix = new int[]{301, 302, 303, 304};
 
@@ -45,6 +44,10 @@ public class Digicel extends ServiceProvider {
 
     public String GetCompanyAddress() {
         return CompanyAddress;
+    }
+
+    public int GetNumberOfBranches(){
+        return NumberOfBranches;
     }
 
     public static int GetNumberOfCustomers() {
@@ -84,10 +87,12 @@ public class Digicel extends ServiceProvider {
     public void DisplayCompanyInformation() {
         System.out.println("Company ID: " + GetCompanyID());
         System.out.println("Address: " + GetCompanyAddress());
+        System.out.println("Number of Branches: "+ GetNumberOfBranches());
         System.out.println("Number of Customers: " + GetNumberOfCustomers());
 
         JOptionPane.showMessageDialog(Panel, "Company ID: " + GetCompanyID() +
-                        "\nAddress: " + GetCompanyAddress() + "\nNumber of Customers: " + GetNumberOfCustomers(),
+                        "\nNumber of Branches: "+ GetNumberOfBranches()+ "\nAddress: " + GetCompanyAddress() +
+                        "\nNumber of Customers: " + GetNumberOfCustomers(),
                 "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 
