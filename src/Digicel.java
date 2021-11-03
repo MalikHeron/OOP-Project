@@ -16,7 +16,6 @@ import java.util.Scanner;
  */
 public class Digicel extends ServiceProvider {
 
-    Customer Customer = new Customer();
     private final int NumberOfBranches;
 
     //Default Constructor

@@ -20,6 +20,7 @@ abstract class ServiceProvider {
     protected static int NumberOfCustomers;
     protected String CompanyID;
     protected String CompanyAddress;
+    Customer Customer = new Customer();
 
     //Default Constructor
     ServiceProvider() {

@@ -22,3 +22,6 @@ Lime Tree, Trelawny
 343943433 Bennett
 Cobbla District, Manchester
 8763010080 100.0
+383593953 Williams
+Hanover
+8763013835 100.0

@@ -16,7 +16,6 @@ import java.util.Scanner;
  */
 public class Flow extends ServiceProvider {
 
-    Customer Customer = new Customer();
     private final String ParentCompanyName;
 
     //Default Constructor
