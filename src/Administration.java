@@ -13,7 +13,7 @@ public class Administration {
     private final JPanel Panel = new JPanel();
     private String Provider;
     private String Password;
-    private ServiceProvider sP;
+    private ServiceProvider ServiceProvider;
 
     //Default Constructor
     Administration() {
@@ -90,11 +90,11 @@ public class Administration {
                 System.out.println("Logged In");
 
                 //Sub-Type Polymorphism
-                sP = new Digicel();
+                ServiceProvider = new Digicel();
 
                 //Remove previous display
                 Panel.removeAll();
-                Panel.add(sP.GetComponent());//Recreate Main menu by calling method of class Digicel
+                Panel.add(ServiceProvider.GetComponent());//Recreate Digicel Main menu by calling method of class Digicel
                 Panel.validate();
                 Panel.repaint();
             } else {
@@ -115,11 +115,11 @@ public class Administration {
                 System.out.println("Logged In");
 
                 //Sub-Type Polymorphism
-                sP = new Flow();
+                ServiceProvider = new Flow();
 
                 //Remove previous display
                 Panel.removeAll();
-                Panel.add(sP.GetComponent());//Recreate Main menu by calling method of class Flow
+                Panel.add(ServiceProvider.GetComponent());//Recreate Flow Main menu by calling method of class Flow
                 Panel.validate();
                 Panel.repaint();
             } else {
