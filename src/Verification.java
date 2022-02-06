@@ -12,7 +12,6 @@ public class Verification {
     //Verify Field Lengths when adding a customer
     public boolean VerifyFieldLengths(String TRN, String LastName, String Address, String TelephoneNumber) {
         boolean Valid = false;
-
         int Length = TRN.length();
         int Length2 = LastName.length();
         int Length3 = Address.length();

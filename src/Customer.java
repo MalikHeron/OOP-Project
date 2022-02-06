@@ -224,21 +224,15 @@ public class Customer {
         ProcessButton.addActionListener((ActionEvent e) -> {
             Verification Check = new Verification();
 
-            char Asterisk1;
-            char Asterisk2;
-            char Asterisk3;
-            char Pound;
-            String Str;
-
             System.out.println("Process Button Pressed");
 
             try {
                 //Check if asterisks and pound key are in correct position
-                Asterisk1 = InputField.getText().charAt(0);
-                Asterisk2 = InputField.getText().charAt(4);
-                Asterisk3 = InputField.getText().charAt(18);
-                Pound = InputField.getText().charAt(29);
-                Str = InputField.getText();
+                char Asterisk1 = InputField.getText().charAt(0);
+                char Asterisk2 = InputField.getText().charAt(4);
+                char Asterisk3 = InputField.getText().charAt(18);
+                char Pound = InputField.getText().charAt(29);
+                String Str = InputField.getText();
 
                 //Validate Input
                 if (Asterisk1 == '*' && Asterisk2 == '*' && Asterisk3 == '*' && Pound == '#' && Str.length() == 30) {
@@ -399,20 +393,14 @@ public class Customer {
         ProcessButton.addActionListener((ActionEvent e) -> {
             Verification Check = new Verification();
 
-            //Check if asterisks and pound key are in correct position
-            char Asterisk1;
-            char Asterisk2;
-            char Pound;
-            String Str;
-
             System.out.println("Process Button Pressed");
 
             try {
                 //Check if asterisks and pound key are in correct position
-                Asterisk1 = InputField.getText().charAt(0);
-                Asterisk2 = InputField.getText().charAt(4);
-                Pound = InputField.getText().charAt(15);
-                Str = InputField.getText();
+                char Asterisk1 = InputField.getText().charAt(0);
+                char Asterisk2 = InputField.getText().charAt(4);
+                char Pound = InputField.getText().charAt(15);
+                String Str = InputField.getText();
 
                 //Validate Input
                 if (Asterisk1 == '*' && Asterisk2 == '*' && Pound == '#' && Str.length() == 16) {

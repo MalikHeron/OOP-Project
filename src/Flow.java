@@ -83,8 +83,8 @@ public class Flow extends ServiceProvider {
 
         JOptionPane.showMessageDialog(Panel, "Company ID: " + GetCompanyID() +
                         "\nParent Company Name: "+ GetParentCompanyName()+ "\nAddress: " + GetCompanyAddress() +
-                        "\nNumber of Customers: " + GetNumberOfCustomers(),
-                "Information", JOptionPane.INFORMATION_MESSAGE);
+                            "\nNumber of Customers: " + GetNumberOfCustomers(),
+                            "Information", JOptionPane.INFORMATION_MESSAGE);
     }
 
     //Add a customer for service provider flow
